@@ -8,7 +8,7 @@ A OpenWRT build system that is set up with the correct toolchain. A favorite com
 ```
 git clone https://github.com/d43m0n/openwrt-builder.git
 cd openwrt-builder
-docker build -t openwrt_builder .
+docker build -t openwrt-builder .
 ```
 
 ## Usage
