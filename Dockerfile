@@ -14,7 +14,7 @@ RUN useradd -m openwrt && \
 USER openwrt
 WORKDIR /home/openwrt
 
-RUN git clone -b kernel5.10-nss-qsdk10.0 git://github.com/ACwifidude/openwrt.git && \
+RUN git clone -b kernel5.10-nss-qsdk10.0 https://github.com/ACwifidude/openwrt.git && \
   openwrt/scripts/feeds update -a && \
   openwrt/scripts/feeds install -a
 
