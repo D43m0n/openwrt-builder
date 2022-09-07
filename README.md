@@ -4,7 +4,7 @@ A OpenWRT build system that is set up with the correct toolchain. A favorite com
 ## Prerequisites
 - docker installed
 - running docker daemon
-- build docker image
+- build docker image:
 ```
 git clone https://github.com/d43m0n/openwrt-builder.git
 cd openwrt-builder
@@ -37,6 +37,6 @@ git fetch upstream && git rebase upstream/master
 
 ### Credits
 As often, this is inspired by others with similar solutions:
-- mwarning[https://github.com/mwarning/docker-openwrt-builder]
-- noonien[https://github.com/noonien/docker-openwrt-buildroot]
-- ACwifidude[https://github.com/ACwifidude/openwrt.git]
+- [mwarning](https://github.com/mwarning/docker-openwrt-builder)
+- [noonien](https://github.com/noonien/docker-openwrt-buildroot)
+- [ACwifidude](https://github.com/ACwifidude/openwrt.git)
