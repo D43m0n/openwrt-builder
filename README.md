@@ -29,11 +29,17 @@ At this point you'll have cloned a GitHub repository, updated and installed the 
 
 Choose the correct diffconfig file you'd like to apply, then let make generate the fully `.config` for you and generate the version number:
 ```
-cp ../diffconfig .config && make defconfig && ./scripts/getver.sh
+cd openwrt
+cp ../my-diffconfigs/diffconfig-ath10k .config && make defconfig && ./scripts/getver.sh
 make -j5
 ```
-After the build is done, you'll find images in `~/openwrt-build/openwrt/bin/target`.
+After the build is done, you'll find images inside the container in:
+ ```
+ ~/openwrt/bin/target
+ ```
+You can use the mountpoint inside the containter (`/mnt`) to copy the images outside of the container.
 
+### Rebase against latest upstream
 If you want to rebase against the latest commits from upstream OpenWRT, go to `/home/openwrt/openwrt`, rebase and then build with the instruction above:
 ```
 #Remove “rebase” commit (this gives you a clean build environment - it deletes the final bin content and diffconfig files, I’d copy the diffconfig to a separate folder before running this command)
