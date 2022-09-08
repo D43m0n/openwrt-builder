@@ -12,14 +12,16 @@ docker build -t openwrt-builder .
 ```
 
 ## Usage
-Create a local folder you want to use to exchange files from within the container and then run the container:
+An easy way to make changes to your build is by using a diffconfig. The cloned repository has a diffconfig already included. When that suits you, thats fine. This docker image will assume you prefer your own diffconfig. That will get copied in the container when you run it. Create the a directory called `my-diffconfigs` in the same place where your `Dockerfile` resides and in there you place your own diffconfig files. All your diffconfigs will be copied to the home dir of the openwrt user in the container.
+
+Also create a local folder you want to use to exchange files from within the container and then run the container:
 ```
 mkdir ~/openwrt-build
 docker run -v ~/openwrt-build:/home/openwrt -it d43m0n/openwrt-builder /bin/bash
 ```
-In the container, you can then run:
+In the container, you can then run something like this. Choose the correct diffconfig file you'd like to apply, then let make generate the fully `.config` for you and generate the version number:
 ```
-cp diffconfig .config && make defconfig && ./scripts/getver.sh
+cp ../diffconfig .config && make defconfig && ./scripts/getver.sh
 make -j5
 ```
 After the build is done, you'll find images in `~/openwrt-build/openwrt/bin/target`.
