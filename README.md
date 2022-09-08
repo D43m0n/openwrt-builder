@@ -19,7 +19,15 @@ Also create a local folder you want to use to exchange files from within the con
 mkdir ~/openwrt-build
 docker run --name buildbox -v ~/openwrt-build:/mnt -it d43m0n/openwrt-builder /bin/bash
 ```
-In the container, you can then run something like this. Choose the correct diffconfig file you'd like to apply, then let make generate the fully `.config` for you and generate the version number:
+In the container, you can then run something like this:
+```
+git clone -b kernel5.10-nss-qsdk10.0 https://github.com/ACwifidude/openwrt.git && \
+openwrt/scripts/feeds update -a && \
+openwrt/scripts/feeds install -a
+```
+At this point you'll have cloned a GitHub repository, updated and installed the feeds.
+
+Choose the correct diffconfig file you'd like to apply, then let make generate the fully `.config` for you and generate the version number:
 ```
 cp ../diffconfig .config && make defconfig && ./scripts/getver.sh
 make -j5
