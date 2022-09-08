@@ -17,7 +17,7 @@ An easy way to make changes to your build is by using a diffconfig. The cloned r
 Also create a local folder you want to use to exchange files from within the container and then run the container:
 ```
 mkdir ~/openwrt-build
-docker run --name buildbox -v ~/openwrt-build:/home/openwrt -it d43m0n/openwrt-builder /bin/bash
+docker run --name buildbox -v ~/openwrt-build:/mnt -it d43m0n/openwrt-builder /bin/bash
 ```
 In the container, you can then run something like this. Choose the correct diffconfig file you'd like to apply, then let make generate the fully `.config` for you and generate the version number:
 ```
