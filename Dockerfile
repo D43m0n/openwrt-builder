@@ -9,13 +9,13 @@ RUN apt-get update &&\
   apt-get clean
 
 RUN useradd -m openwrt && \
-  echo 'openwrt ALL=nopasswd: ALL' > /etc/sudoers.d/openwrt
+  echo 'openwrt ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/openwrt
 
 USER openwrt
 WORKDIR /home/openwrt
-COPY my-diffconfigs/ /home/openwrt/
+COPY ./my-diffconfigs/ ./my-diffconfigs/
 
-RUN git clone -b kernel5.10-nss-qsdk10.0 https://github.com/ACwifidude/openwrt.git && \
-  openwrt/scripts/feeds update -a && \
-  openwrt/scripts/feeds install -a
+# RUN git clone -b kernel5.10-nss-qsdk10.0 https://github.com/ACwifidude/openwrt.git && \
+#   openwrt/scripts/feeds update -a && \
+#   openwrt/scripts/feeds install -a
 
