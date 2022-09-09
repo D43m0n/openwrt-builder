@@ -5,7 +5,7 @@ RUN apt-get update &&\
   apt-get install --no-install-recommends -y \
     sudo time git-core subversion build-essential gcc-multilib \
     libncurses5-dev zlib1g-dev gawk flex gettext wget unzip \
-    grep rsync python3 python3-distutils ca-certificates file less && \
+    grep rsync python3 python3-distutils ca-certificates file less vim && \
   apt-get clean
 
 RUN useradd -m openwrt && \

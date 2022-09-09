@@ -51,6 +51,16 @@ git remote add upstream https://git.openwrt.org/openwrt/openwrt.git
 git fetch upstream && git rebase upstream/master 
 ```
 
+### Reuse the same container for another build
+If you want to start the same container again:
+```
+docker start buildbox
+```
+When it runs, enter it with:
+```
+docker exec -ti buildbox /bin/bash
+```
+
 ### Credits
 As often, this is inspired by others with similar solutions:
 - [mwarning](https://github.com/mwarning/docker-openwrt-builder)
