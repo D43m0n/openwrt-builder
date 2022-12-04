@@ -15,7 +15,3 @@ USER openwrt
 WORKDIR /home/openwrt
 COPY ./my-diffconfigs/ ./my-diffconfigs/
 
-# RUN git clone -b kernel5.10-nss-qsdk10.0 https://github.com/ACwifidude/openwrt.git && \
-#   openwrt/scripts/feeds update -a && \
-#   openwrt/scripts/feeds install -a
-
