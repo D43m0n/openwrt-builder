@@ -10,10 +10,10 @@ RUN apt-get update && \
         libssl-dev patch libncurses5 libncurses5-dev zlib1g-dev gawk \
         flex gettext wget unzip xz-utils python3 python3-distutils-extra \
         python3-distutils-extra python3-setuptools swig rsync curl \
-        libsnmp-dev liblzma-dev libpam0g-dev cpio rsync gcc-multilib qemu-utils \
+        #libsnmp-dev liblzma-dev libpam0g-dev cpio rsync gcc-multilib qemu-utils \
+        libsnmp-dev liblzma-dev libpam0g-dev cpio rsync qemu-utils \
         python2.7 && \
-    apt-get clean && \
-
+    apt-get clean 
 RUN useradd -m openwrt && \
   echo 'openwrt ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/openwrt
 
