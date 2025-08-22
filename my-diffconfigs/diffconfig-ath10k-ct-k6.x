@@ -2,44 +2,42 @@
 CONFIG_TARGET_ipq806x=y
 CONFIG_TARGET_ipq806x_generic=y
 CONFIG_TARGET_MULTI_PROFILE=y
-CONFIG_TARGET_DEVICE_ipq806x_generic_DEVICE_netgear_r7800=y
-CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_netgear_r7800="-kmod-ath10k-ct -ath10k-firmware-qca9984-ct kmod-ath10k ath10k-firmware-qca9984"
 CONFIG_TARGET_DEVICE_ipq806x_generic_DEVICE_tplink_c2600=y
-CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_tplink_c2600="-kmod-ath10k-ct -ath10k-firmware-qca99x0-ct kmod-ath10k ath10k-firmware-qca99x0"
+CONFIG_TARGET_DEVICE_PACKAGES_ipq806x_generic_DEVICE_tplink_c2600=""
 # Uncomment the line below to get all kmod packages generated (about 920) instead of
 # about 170 kmod packages.
 #CONFIG_ALL_KMODS=y
 CONFIG_TARGET_PER_DEVICE_ROOTFS=y
 
+#
+CONFIG_ATH10K_LEDS=y
+CONFIG_ATH10K_THERMAL=y
+
 # exfat is patented
 CONFIG_BUILD_PATENTED=y
 
+CONFIG_FEED_sqm_scripts_nss=n
+
 # NSS Drivers
-CONFIG_PACKAGE_kmod-qca-nss-drv=y
-CONFIG_PACKAGE_kmod-qca-nss-drv-qdisc=y
-CONFIG_PACKAGE_kmod-qca-nss-ecm-standard=y
-CONFIG_PACKAGE_kmod-qca-nss-gmac=y
 CONFIG_PACKAGE_kmod-nss-ifb=y
+CONFIG_PACKAGE_kmod-qca-mcs=y
+CONFIG_PACKAGE_kmod-qca-nss-cfi-cryptoapi=y
+CONFIG_PACKAGE_kmod-qca-nss-crypto=y
+CONFIG_PACKAGE_kmod-qca-nss-drv=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-igs=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-l2tpv2=y
 CONFIG_PACKAGE_kmod-qca-nss-drv-pppoe=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-pptp=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-qdisc=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-tun6rd=y
+CONFIG_PACKAGE_kmod-qca-nss-drv-tunipip6=y
+CONFIG_PACKAGE_kmod-qca-nss-gmac=y
+CONFIG_PACKAGE_kmod-qca-nss-ecm-standard=y
 CONFIG_PACKAGE_MAC80211_NSS_SUPPORT=y
-# CONFIG_PACKAGE_kmod-qca-nss-cfi-cryptoapi is not set
-# CONFIG_PACKAGE_kmod-qca-nss-crypto is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-capwapmgr is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-dtlsmgr is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-gre is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-ipsecmgr is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-l2tpv2 is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-lag-mgr is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-map-t is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-pptp is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-profile is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-pvxlanmgr is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-tun6rd is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-tunipip6 is not set
-# CONFIG_PACKAGE_kmod-qca-nss-drv-vlan-mgr is not set
-# CONFIG_PACKAGE_kmod-qca-nss-ecm-noload is not set
-# CONFIG_PACKAGE_kmod-qca-nss-ecm-premium is not set
-# CONFIG_PACKAGE_kmod-qca-nss-ecm-premium-noload is not set
+CONFIG_PACKAGE_MAC80211_DEBUGFS=y
+
+## SQM QoS nss
+CONFIG_PACKAGE_sqm-scripts-nss=y
 
 # Longer waiting for failsafe button push
 CONFIG_IMAGEOPT=y
@@ -55,14 +53,8 @@ CONFIG_BUSYBOX_CONFIG_FEATURE_LESS_REGEXP=y
 CONFIG_BUSYBOX_CONFIG_FEATURE_LESS_WINCH=y
 
 # Add-on programs
-#CONFIG_PACKAGE_irqbalance=y
 CONFIG_DROPBEAR_ECC=y
 CONFIG_PACKAGE_htop=y
-CONFIG_PACKAGE_kmod-cryptodev=y
-CONFIG_PACKAGE_libopenssl-devcrypto=y
-CONFIG_PACKAGE_iptables-mod-physdev=y
-CONFIG_PACKAGE_kmod-ipt-physdev=y
-#CONFIG_PACKAGE_igmpproxy=n
 CONFIG_PACKAGE_curl=y
 CONFIG_PACKAGE_wget=y
 
@@ -125,59 +117,35 @@ CONFIG_PACKAGE_ca-certificates=y
 # Luci (SSL from OpenSSL)
 CONFIG_PACKAGE_luci-ssl-openssl=y
 CONFIG_PACKAGE_luci-app-commands=y
-#CONFIG_PACKAGE_luci-app-sqm=n
-#CONFIG_PACKAGE_luci-app-adblock=n
-#CONFIG_PACKAGE_luci-app-openvpn=n
-#CONFIG_PACKAGE_luci-app-wireguard=n
 CONFIG_PACKAGE_luci-theme-openwrt-2020=y
-#CONFIG_PACKAGE_luci-app-banip=n
+CONFIG_PACKAGE_luci-app-sqm=y
+CONFIG_PACKAGE_luci-theme-material=y
 
 # Luci statistics
 CONFIG_PACKAGE_luci-app-statistics=y
-#CONFIG_PACKAGE_collectd-mod-conntrack=n
 CONFIG_PACKAGE_collectd-mod-cpufreq=y
-#CONFIG_PACKAGE_collectd-mod-dhcpleases=n
-CONFIG_PACKAGE_collectd-mod-entropy=y
 CONFIG_PACKAGE_collectd-mod-exec=y
 CONFIG_PACKAGE_collectd-mod-interface=y
 CONFIG_PACKAGE_collectd-mod-iwinfo=y
 CONFIG_PACKAGE_collectd-mod-load=y
 CONFIG_PACKAGE_collectd-mod-memory=y
-#CONFIG_PACKAGE_collectd-mod-network=n
-#CONFIG_PACKAGE_collectd-mod-ping=n
-#CONFIG_PACKAGE_collectd-mod-sqm=n
 CONFIG_PACKAGE_collectd-mod-thermal=y
 CONFIG_PACKAGE_collectd-mod-wireless=y
 CONFIG_PACKAGE_collectd-mod-uptime=y
 
-# nlbwmon app
-#CONFIG_PACKAGE_luci-app-nlbwmon=n
-
 # DAWN
 CONFIG_PACKAGE_luci-app-dawn=y
 
-# node-exporter
-CONFIG_PACKAGE_prometheus-node-exporter-lua=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-nat_traffic=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-netstat=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-openwrt=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-wifi=y
-CONFIG_PACKAGE_prometheus-node-exporter-lua-wifi_stations=y
-
-CONFIG_PACKAGE_kmod-ath10k-ct=m
-CONFIG_PACKAGE_kmod-ath10k=m
-CONFIG_PACKAGE_ath10k-firmware-qca988x-ct=m
-CONFIG_PACKAGE_ath10k-firmware-qca99x0-ct=m
-CONFIG_PACKAGE_ath10k-firmware-qca9984-ct=m
-CONFIG_PACKAGE_ath10k-firmware-qca988x=m
-CONFIG_PACKAGE_ath10k-firmware-qca99x0=m
-CONFIG_PACKAGE_ath10k-firmware-qca9984=m
+# OpenWISP for management via OpenSOHO
+CONFIG_PACKAGE_openwisp-config=y
+CONFIG_PACKAGE_openwisp-monitoring=y
+CONFIG_PACKAGE_luci-app-openwisp=y
 
 # store crashes from RAM
 CONFIG_PACKAGE_kmod-ramoops=y
 CONFIG_PACKAGE_kmod-pstore=y
 CONFIG_PSTORE_CONSOLE=y
 
-# Tune C2600                                                                                                                                                                    
+# Tune C2600
 CONFIG_PACKAGE_ethtool=y
 

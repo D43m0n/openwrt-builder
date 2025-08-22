@@ -11,7 +11,7 @@ RUN apt-get update && \
         flex gettext wget unzip xz-utils python3 python3-distutils-extra \
         python3-distutils-extra python3-setuptools swig rsync curl \
         #libsnmp-dev liblzma-dev libpam0g-dev cpio rsync gcc-multilib qemu-utils \
-        libsnmp-dev liblzma-dev libpam0g-dev cpio rsync qemu-utils \
+        libsnmp-dev liblzma-dev libpam0g-dev cpio rsync qemu-utils vim \
         python2.7 && \
     apt-get clean 
 RUN useradd -m openwrt && \
