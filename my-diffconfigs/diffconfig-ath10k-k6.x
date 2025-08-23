@@ -110,7 +110,6 @@ CONFIG_PACKAGE_ip6tables-mod-nat=y
 # WLAN/WPS support
 CONFIG_PACKAGE_hostapd-utils=y
 CONFIG_WPA_MSG_MIN_PRIORITY=4
-CONFIG_PACKAGE_wpad-openssl=y
 # CONFIG_PACKAGE_wpad-basic-wolfssl is not set
 # CONFIG_PACKAGE_libustream-wolfssl is not set
 
@@ -138,6 +137,21 @@ CONFIG_PACKAGE_collectd-mod-uptime=y
 
 # DAWN
 CONFIG_PACKAGE_luci-app-dawn=y
+# DAWN needs full wpad or hostapd package:
+CONFIG_DEFAULT_wpad-basic-mbedtls=y
+CONFIG_MODULE_DEFAULT_wpad-basic-mbedtls=y
+# CONFIG_PACKAGE_wpad is not set
+# CONFIG_PACKAGE_wpad-basic is not set
+CONFIG_PACKAGE_wpad-basic-mbedtls=m
+# CONFIG_PACKAGE_wpad-basic-openssl is not set
+# CONFIG_PACKAGE_wpad-basic-wolfssl is not set
+CONFIG_PACKAGE_wpad-mbedtls=y
+# CONFIG_PACKAGE_wpad-mesh-mbedtls is not set
+# CONFIG_PACKAGE_wpad-mesh-openssl is not set
+# CONFIG_PACKAGE_wpad-mesh-wolfssl is not set
+# CONFIG_PACKAGE_wpad-mini is not set
+# CONFIG_PACKAGE_wpad-openssl is not set
+# CONFIG_PACKAGE_wpad-wolfssl is not set
 
 # OpenWISP for management via OpenSOHO
 CONFIG_PACKAGE_openwisp-config=y
