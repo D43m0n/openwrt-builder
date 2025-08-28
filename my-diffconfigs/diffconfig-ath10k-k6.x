@@ -60,6 +60,9 @@ CONFIG_DROPBEAR_ECC=y
 CONFIG_PACKAGE_htop=y
 CONFIG_PACKAGE_curl=y
 CONFIG_PACKAGE_wget=y
+CONFIG_PACKAGE_vim-full=y
+CONFIG_PACKAGE_openssh-sftp-server=y
+CONFIG_PACKAGE_umdns=y
 
 # USB device mount & file systems support
 CONFIG_PACKAGE_block-mount=y
@@ -136,7 +139,7 @@ CONFIG_PACKAGE_collectd-mod-wireless=y
 CONFIG_PACKAGE_collectd-mod-uptime=y
 
 # DAWN
-CONFIG_PACKAGE_luci-app-dawn=y
+#CONFIG_PACKAGE_luci-app-dawn=y
 # DAWN needs full wpad or hostapd package:
 CONFIG_DEFAULT_wpad-basic-mbedtls=y
 CONFIG_MODULE_DEFAULT_wpad-basic-mbedtls=y
